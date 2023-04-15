@@ -1,9 +1,20 @@
 from tkinter import *
+
+SEPARATOR = " | "
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
+
+def save():
+    web = web_entry.get()
+    user = user_entry.get()
+    passw = passw_entry.get()
+    with open("pass.txt", "a") as passwd:
+        passwd.write(web + SEPARATOR + user + SEPARATOR + passw + "\n")
+
 # ---------------------------- UI SETUP ------------------------------- #
+
 
 # Window
 window = Tk()
@@ -25,19 +36,19 @@ pass_label = Label(text="Password:")
 pass_label.grid(column=0, row=3)
 
 # Inputs
-web = Entry(width=43)
-web.grid(column=1, row=1, columnspan=2, sticky="w")
-web.focus()
-user = Entry(width=43)
-user.grid(column=1, row=2, columnspan=2, sticky="w")
-user.insert(0, "yusepah@gmail.com")
-passw = Entry(width=21)
-passw.grid(column=1, row=3, sticky="w")
+web_entry = Entry(width=43)
+web_entry.grid(column=1, row=1, columnspan=2, sticky="w")
+web_entry.focus()
+user_entry = Entry(width=43)
+user_entry.grid(column=1, row=2, columnspan=2, sticky="w")
+user_entry.insert(0, "yusepah@gmail.com")
+passw_entry = Entry(width=21)
+passw_entry.grid(column=1, row=3, sticky="w")
 
 # Buttons
 generate_button = Button(text="Generate Password")
 generate_button.grid(column=1, row=3, columnspan=2, sticky="e")
-add_button = Button(text="Add", width=36)
+add_button = Button(text="Add", width=36, command=save)
 add_button.grid(column=1, row=4, columnspan=2, sticky="w")
 
 window.mainloop()
