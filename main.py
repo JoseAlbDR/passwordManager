@@ -10,8 +10,10 @@ def save():
     web = web_entry.get()
     user = user_entry.get()
     passw = passw_entry.get()
-    with open("pass.txt", "a") as passwd:
-        passwd.write(web + SEPARATOR + user + SEPARATOR + passw + "\n")
+    with open("data.txt", "a") as data_file:
+        data_file.write(web + SEPARATOR + user + SEPARATOR + passw + "\n")
+    web_entry.delete(0, END)
+    passw_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
