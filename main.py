@@ -26,9 +26,7 @@ def generate_password():
     # Shuffle it
     shuffle(pass_list)
     # Concatenate into a string
-    password = ""
-    for n in pass_list:
-        password += n
+    password = "".join([n for n in pass_list])
     # Show in Entry
     passw_entry.insert(0, password)
     pyperclip.copy(passw_entry.get())
