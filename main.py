@@ -1,4 +1,6 @@
 from tkinter import *
+from random import *
+from tkinter import messagebox
 
 SEPARATOR = " | "
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -7,13 +9,28 @@ SEPARATOR = " | "
 
 
 def save():
+    """
+    Save the data in a file
+    """
+    # Vars
     web = web_entry.get()
     user = user_entry.get()
     passw = passw_entry.get()
-    with open("data.txt", "a") as data_file:
-        data_file.write(web + SEPARATOR + user + SEPARATOR + passw + "\n")
-    web_entry.delete(0, END)
-    passw_entry.delete(0, END)
+
+    # Some validation
+    if len(web) == 0 or len(passw) == 0:
+        messagebox.showinfo(title="Empty fields",
+                            message="Don't leave any fields empty please.")
+    else:
+        # Double check
+        if messagebox.askokcancel(title=web, message=f"Data entered: \nEmail: {user}\nPassword: {passw}"
+                                  f"\nSave data?"):
+            # Save to file
+            with open("data.txt", "a") as data_file:
+                data_file.write(web + SEPARATOR + user +
+                                SEPARATOR + passw + "\n")
+            web_entry.delete(0, END)
+            passw_entry.delete(0, END)
 
 # ---------------------------- UI SETUP ------------------------------- #
 
