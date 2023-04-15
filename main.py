@@ -27,8 +27,10 @@ pass_label.grid(column=0, row=3)
 # Inputs
 web = Entry(width=43)
 web.grid(column=1, row=1, columnspan=2, sticky="w")
+web.focus()
 user = Entry(width=43)
 user.grid(column=1, row=2, columnspan=2, sticky="w")
+user.insert(0, "yusepah@gmail.com")
 passw = Entry(width=21)
 passw.grid(column=1, row=3, sticky="w")
 
