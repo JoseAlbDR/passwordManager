@@ -5,6 +5,28 @@ from tkinter import messagebox
 SEPARATOR = " | "
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
+
+def generate_password():
+    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+               'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+    random_letters = randint(8, 10)
+    random_numbers = randint(2, 4)
+    random_symbols = randint(2, 4)
+
+    pass_list = []
+    passw_entry.delete(0, END)
+    pass_list = [choice(letters) for n in range(random_letters)]
+    pass_list += [choice(numbers) for n in range(random_numbers)]
+    pass_list += [choice(symbols) for n in range(random_symbols)]
+    shuffle(pass_list)
+    print(pass_list)
+    password = ""
+    for n in pass_list:
+        password += n
+    passw_entry.insert(0, password)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
@@ -61,11 +83,11 @@ web_entry.focus()
 user_entry = Entry(width=43)
 user_entry.grid(column=1, row=2, columnspan=2, sticky="w")
 user_entry.insert(0, "yusepah@gmail.com")
-passw_entry = Entry(width=21)
+passw_entry = Entry(width=23)
 passw_entry.grid(column=1, row=3, sticky="w")
 
 # Buttons
-generate_button = Button(text="Generate Password")
+generate_button = Button(text="Generate Password", command=generate_password)
 generate_button.grid(column=1, row=3, columnspan=2, sticky="e")
 add_button = Button(text="Add", width=36, command=save)
 add_button.grid(column=1, row=4, columnspan=2, sticky="w")
