@@ -2,6 +2,7 @@ from tkinter import *
 from random import *
 from tkinter import messagebox
 import pyperclip
+import string
 
 SEPARATOR = " | "
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
@@ -20,8 +21,8 @@ def generate_password():
     # Generate paswword
     pass_list = []
     passw_entry.delete(0, END)
-    pass_list = [choice(letters) for _ in range(randint(8, 10))]
-    pass_list += [choice(numbers) for _ in range(randint(2, 4))]
+    pass_list = [choice(string.ascii_letters) for _ in range(randint(8, 10))]
+    pass_list += [str(randint(0, 10)) for _ in range(randint(2, 4))]
     pass_list += [choice(symbols) for _ in range(randint(2, 4))]
     # Shuffle it
     shuffle(pass_list)
