@@ -14,16 +14,13 @@ def generate_password():
     and 2 and 4 numbers
     """
     # Vars
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-               'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
     symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
-    # Generate paswword
+    # Generate password
     pass_list = []
     passw_entry.delete(0, END)
     pass_list = [choice(string.ascii_letters) for _ in range(randint(8, 10))]
-    pass_list += [str(randint(0, 10)) for _ in range(randint(2, 4))]
-    pass_list += [choice(symbols) for _ in range(randint(2, 4))]
+    pass_list += [choice(string.digits) for _ in range(randint(2, 4))]
+    pass_list += [choice(string.punctuation) for _ in range(randint(2, 4))]
     # Shuffle it
     shuffle(pass_list)
     # Concatenate into a string
