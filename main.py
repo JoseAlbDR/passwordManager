@@ -37,7 +37,7 @@ def generate_password():
 
 
 def save():
-    """
+    """               
     Save the data in a file
     """
     # Vars
