@@ -10,3 +10,11 @@ Run main.py to use.
 - - You can set the number of letters, digits and symbols generated in the password by changing RANGE_LETTERS, RANGE_DIGITS and RANGE_SYMBOLS in main.py
 - Once you click on Add button a message will prompt to check the data and accept if correct
 - The data will be saved to a file named data.txt in the same directory.
+
+## Prerequisites
+
+- Python 3.x installed on your system
+- The `tkinter` library is installed. If not, you can install it using `pip`:
+
+  ```shell
+  pip install tkinter
