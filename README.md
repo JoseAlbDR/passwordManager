@@ -1,6 +1,7 @@
 # passwordManager
 Password Generator
 Simple password generator with tkinter that stores the data in a file and copy the password into the clipboard.
+Run main.py to use.
 ## Instructions
 - Enter the website where you want to use the password in.
 - Enter the Email/Username for the given website
