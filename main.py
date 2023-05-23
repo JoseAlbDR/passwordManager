@@ -5,6 +5,10 @@ import pyperclip
 import string
 
 SEPARATOR = " | "
+DEFAULT_USER = "email@domain.com"
+RANGE_LETTERS = (8, 10)
+RANGE_DIGITS = (2, 4)
+RANGE_SYMBOLS = (2, 4)
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
@@ -84,7 +88,7 @@ web_entry.grid(column=1, row=1, columnspan=2, sticky="w")
 web_entry.focus()
 user_entry = Entry(width=43)
 user_entry.grid(column=1, row=2, columnspan=2, sticky="w")
-user_entry.insert(0, "yusepah@gmail.com")
+user_entry.insert(0, DEFAULT_USER)
 passw_entry = Entry(width=23)
 passw_entry.grid(column=1, row=3, sticky="w")
 
